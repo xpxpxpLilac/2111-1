@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+unsigned long sof(unsigned long t, unsigned long a, unsigned long b){
+    unsigned long sum = b;
+    unsigned long s = 0;
+    unsigned long curr = a + b;
+
+    if((a % 2 != 0) && (a < t)) {
+        s += a;
+    }
+    if((b % 2 != 0) && (b < t)) {
+        s += b;
+    }
+    while(curr < t){
+        if(curr % 2 != 0) {
+            s += curr;
+        }
+        unsigned a = curr;
+        curr = curr + sum;
+        sum = a;
+    }
+    return s;
+}
